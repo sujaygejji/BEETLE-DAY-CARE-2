@@ -1,16 +1,18 @@
 // Wait until the entire web page is loaded
 document.addEventListener("DOMContentLoaded", function () {
 
-    // 1. SMOOTH SCROLLING WITH OFFSET FOR THE FIXED NAVBAR
-    const navLinks = document.querySelectorAll('.nav-menu a, .hero-buttons a');
+    // 1. OBJECT VARIABLES
     const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.nav-menu a, .hero-buttons a');
+    const animatedItems = document.querySelectorAll(".toy-train, .floating-block, .sparkle");
 
+    // 2. SMOOTH SCROLLING WITH NAVBAR OFFSET
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
             
-            // Only apply to internal section links
-            if (targetId.startsWith('#')) {
+            // Only apply to internal section links (links starting with #)
+            if (targetId && targetId.startsWith('#')) {
                 e.preventDefault();
                 const targetSection = document.querySelector(targetId);
 
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 2. NAVBAR SHADOW EFFECT ON SCROLL
+    // 3. NAVBAR SHADOW EFFECT ON SCROLL
     window.addEventListener('scroll', function () {
         if (window.scrollY > 20) {
             navbar.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.1)";
@@ -39,16 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
             navbar.style.backgroundColor = "#F0F4F8"; // Returns to standard header color
         }
     });
+
+    // 4. PAUSE ANIMATIONS WHEN TAB IS HIDDEN
     document.addEventListener("visibilitychange", () => {
-
-    const animatedItems =
-        document.querySelectorAll(".toy-train,.floating-block,.sparkle");
-
-    animatedItems.forEach(item => {
-        item.style.animationPlayState =
-            document.hidden ? "paused" : "running";
+        animatedItems.forEach(item => {
+            // If tab is hidden, pause animation. If visible, run it.
+            item.style.animationPlayState = document.hidden ? "paused" : "running";
+        });
     });
-
-});
 
 });
