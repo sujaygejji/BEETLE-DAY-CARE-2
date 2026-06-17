@@ -39,5 +39,16 @@ document.addEventListener("DOMContentLoaded", function () {
             navbar.style.backgroundColor = "#F0F4F8"; // Returns to standard header color
         }
     });
+    document.addEventListener("visibilitychange", () => {
+
+    const animatedItems =
+        document.querySelectorAll(".toy-train,.floating-block,.sparkle");
+
+    animatedItems.forEach(item => {
+        item.style.animationPlayState =
+            document.hidden ? "paused" : "running";
+    });
+
+});
 
 });
