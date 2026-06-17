@@ -665,6 +665,90 @@ footer a:hover {
     }
 }
 
+/* =====================================
+   HERO IMAGE MICRO ANIMATIONS
+   ===================================== */
+
+.hero-image-wrapper{
+    position:relative;
+    overflow:hidden;
+}
+
+.toy-train{
+    position:absolute;
+    bottom:24%;
+    left:46%;
+    font-size:28px;
+    z-index:20;
+    animation: trainMove 8s ease-in-out infinite;
+}
+
+.floating-block{
+    position:absolute;
+    bottom:34%;
+    left:22%;
+    font-size:24px;
+    z-index:20;
+    animation: blockStack 3s ease-in-out infinite;
+}
+
+.sparkle{
+    position:absolute;
+    z-index:20;
+    font-size:18px;
+    animation:sparkleFloat 4s ease-in-out infinite;
+}
+
+.sparkle1{
+    top:18%;
+    right:20%;
+}
+
+.sparkle2{
+    top:35%;
+    right:12%;
+    animation-delay:2s;
+}
+
+@keyframes trainMove{
+    0%{
+        transform:translateX(0px);
+    }
+    50%{
+        transform:translateX(40px);
+    }
+    100%{
+        transform:translateX(0px);
+    }
+}
+
+@keyframes blockStack{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+@keyframes sparkleFloat{
+    0%{
+        transform:translateY(0px);
+        opacity:.8;
+    }
+    50%{
+        transform:translateY(-8px);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(0px);
+        opacity:.8;
+    }
+}
+
 /* ==========================================
    10. KEYFRAME STRUCTS & ANIMATIONS
    ========================================== */
