@@ -4,25 +4,74 @@
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     
-    <!-- GOOGLE SEO META TAGS --> 
     <title>Premier Family Daycare in Minneapolis, MN | Beetle Day Care</title> 
     <meta name="description" content="Beetle Day Care offers a safe, licensed home-away-from-home infant and toddler care service in Minneapolis, MN. Contact manager Sheila Jayaswal today!"> 
     <meta name="keywords" content="daycare minneapolis, family daycare minneapolis, licensed child care mn 55406, infant care minneapolis, toddler care mn"> 
     
-    <!-- STYLESHEETS & FONTS --> 
     <link rel="stylesheet" href="style.css?v=1.2"> 
     
-    <!-- GOOGLE FONTS PRECONNECT & INJECTION -->
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet"> 
     
-    <!-- ICON PACK: FONTAWESOME CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        // Wait until the entire web page is loaded
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // 1. SMOOTH SCROLLING WITH OFFSET FOR THE FIXED NAVBAR
+            const navLinks = document.querySelectorAll('.nav-menu a, .hero-buttons a');
+            const navbar = document.querySelector('.navbar');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    
+                    // Only apply to internal section links
+                    if (targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const targetSection = document.querySelector(targetId);
+
+                        if (targetSection) {
+                            // Calculate the exact height of your navbar dynamically
+                            const navbarHeight = navbar.offsetHeight;
+                            const sectionPosition = targetSection.offsetTop;
+                            
+                            // Scroll to the exact position minus the navbar height
+                            window.scrollTo({
+                                top: sectionPosition - navbarHeight,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // 2. NAVBAR SHADOW EFFECT ON SCROLL
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 20) {
+                    navbar.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.1)";
+                    navbar.style.backgroundColor = "#EBF1F7"; // Shifts a tiny bit darker when scrolling
+                } else {
+                    navbar.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.05)";
+                    navbar.style.backgroundColor = "#F0F4F8"; // Returns to standard header color
+                }
+            });
+
+            // 3. PAUSE ANIMATIONS WHEN TAB IS NOT ACTIVE
+            document.addEventListener("visibilitychange", () => {
+                const animatedItems = document.querySelectorAll(".toy-train,.floating-block,.sparkle");
+                animatedItems.forEach(item => {
+                    item.style.animationPlayState = document.hidden ? "paused" : "running";
+                });
+            });
+
+        });
+    </script>
 </head> 
 <body> 
 
-    <!-- HEADER & FIXED NAVIGATION NAVBAR --> 
     <header class="navbar"> 
         <div class="nav-container"> 
             <a href="#" class="logo-area" aria-label="Beetle Day Care Home"> 
@@ -44,7 +93,6 @@
         </div> 
     </header> 
 
-    <!-- 1. HERO SECTION --> 
     <section id="home" class="hero-section"> 
         <div class="hero-container"> 
             <div class="hero-content"> 
@@ -72,27 +120,18 @@
                 </div> 
             </div> 
             
-            <!-- HERO IMAGE BACKDROP WITH LIVE CSS OVERLAY WALL SIGNBOARD -->
-             <div class="hero-image">
-    <div class="hero-image-wrapper">
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="hero.png" alt="Beetle Day Care Classroom Setup featuring educational games and play area">
+                    <div class="toy-train">🚂</div>
+                    <div class="floating-block">🧱</div>
+                    <div class="sparkle sparkle1">✨</div>
+                    <div class="sparkle sparkle2">⭐</div>
+                </div>
+            </div>
+        </div>
+    </section> 
 
-        <img src="hero.png"
-             alt="Beetle Day Care Classroom Setup featuring educational games and play area">
-
-        <!-- Small Moving Train -->
-        <div class="toy-train">🚂</div>
-
-        <!-- Small Moving Block -->
-        <div class="floating-block">🧱</div>
-
-        <!-- Floating Stars -->
-        <div class="sparkle sparkle1">✨</div>
-        <div class="sparkle sparkle2">⭐</div>
-
-    </div>
-</div>
-
-    <!-- 2. ABOUT SECTION --> 
     <section id="about" class="about-section"> 
         <div class="section-container"> 
             <div class="about-grid"> 
@@ -120,7 +159,6 @@
         </div> 
     </section> 
 
-    <!-- 3. PROGRAMS SECTION --> 
     <section id="programs" class="program-section"> 
         <div class="section-container"> 
             <h2 class="section-title">Our Programs</h2> 
@@ -144,7 +182,6 @@
         </div> 
     </section> 
 
-    <!-- 4. GALLERY SECTION --> 
     <section id="gallery" class="gallery-section"> 
         <div class="gallery-container"> 
             <h2 class="gallery-title">Our Fun Activities</h2> 
@@ -163,7 +200,6 @@
         </div> 
     </section> 
 
-    <!-- 5. CONTACT SECTION --> 
     <section id="contact" class="contact-section"> 
         <div class="section-container"> 
             <h2>Contact Us</h2> 
@@ -190,18 +226,16 @@
                 </div> 
             </div> 
             
-            <!-- EMBEDDED INTERACTIVE GOOGLE MAP MAPPER --> 
             <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2825.263884872322!2d-93.2132332!3d44.9382902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b32bee1bf88d7d%3A0x280e22ef7a6ccae4!2s3541%2043rd%20Ave%20S%2C%20Minneapolis%2C%20MN%2055406%2C%20USA!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="450" style="border:0; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://maps.google.com/maps?q=3541%2043rd%20Avenue%20South,%20Minneapolis,%20MN%2055406&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- 6. FOOTER SECTION -->
     <footer>
         <div class="section-container">
             <img src="logo.png" alt="Beetle Day Care Mini Logo">
-            <p>&copy; 2026 Beetle Day Care. All Rights Reserved. Licensed Family Child Care.</p>
+            <p>© 2026 Beetle Day Care. All Rights Reserved. Licensed Family Child Care.</p>
             <p style="margin-top: 10px; font-size: 12px; color: #627D98;">
                 <a href="#home">Home</a> | <a href="#about">About</a> | <a href="#programs">Programs</a> | <a href="#contact">Contact</a>
             </p>
