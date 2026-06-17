@@ -40,7 +40,7 @@ h1, h2, h3 {
 
 .nav-container {
     display: flex;
-    justify-content: space-between; /* Pushes logo to left, links to right */
+    justify-content: space-between; /* Logo on left, links on right */
     align-items: center;
     padding: 15px 20px;
 }
@@ -49,7 +49,7 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 12px; /* Spaces out logo image and text */
+    gap: 12px;
 }
 
 .logo-img {
@@ -73,10 +73,9 @@ h1, h2, h3 {
     color: #627D98;
 }
 
-/* Navigation Links Side-by-Side */
 .nav-menu {
     display: flex;
-    gap: 25px; /* Spaces out the links */
+    gap: 25px;
 }
 
 .nav-menu a {
@@ -94,7 +93,7 @@ h1, h2, h3 {
    3. HERO SECTION (Side-by-Side Content & Image)
    ========================================== */
 .hero-section {
-    padding-top: 120px; /* Prevents fixed navbar from covering content */
+    padding-top: 120px; /* Space for the top navbar */
     background: linear-gradient(180deg, #F0F4F8 0%, #FFFFFF 100%);
 }
 
@@ -106,11 +105,11 @@ h1, h2, h3 {
 }
 
 .hero-content {
-    flex: 1; /* Takes up half the space */
+    flex: 1;
 }
 
 .hero-image {
-    flex: 1; /* Takes up the other half */
+    flex: 1;
     display: flex;
     justify-content: center;
     position: relative;
@@ -140,19 +139,30 @@ h1, h2, h3 {
 .btn-primary { background-color: #102A43; color: white; }
 .btn-secondary { background-color: #D9E2EC; color: #102A43; }
 
-/* Highlight Bar Items Side-by-Side */
+/* FIX: Highlight Bar Side-by-Side (No squeezing) */
 .highlight-bar {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap; /* Wraps items cleanly on medium screens */
+    gap: 15px;
     margin-top: 30px;
     background: white;
-    padding: 15px;
+    padding: 15px 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.highlight-bar span {
+    font-size: 14px; /* Keeps text slightly smaller to fit perfectly */
+    white-space: nowrap; /* Stops text from wrapping awkwardly */
+}
+
+/* Animations placeholder space */
+.toy-train, .floating-block, .sparkle {
+    position: absolute;
 }
 
 /* ==========================================
-   4. ABOUT SECTION (Side-by-Side Text & Illustration)
+   4. ABOUT SECTION (Side-by-Side Text & Image)
    ========================================== */
 .about-grid {
     display: flex;
@@ -170,7 +180,7 @@ h1, h2, h3 {
     border-radius: 24px;
 }
 
-/* About Features Side-by-Side */
+/* Features Side-by-Side */
 .about-features {
     display: flex;
     gap: 20px;
@@ -199,12 +209,12 @@ h1, h2, h3 {
 
 .program-grid {
     display: flex;
-    gap: 25px; /* Spaces out the 3 cards */
+    gap: 25px;
     justify-content: center;
 }
 
 .program-card {
-    flex: 1; /* Makes all cards equal width */
+    flex: 1;
     background: white;
     border-radius: 20px;
     overflow: hidden;
@@ -229,7 +239,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================
-   6. GALLERY SECTION (Grid Layout)
+   6. GALLERY SECTION (5 Images Side-by-Side)
    ========================================== */
 .gallery-section {
     text-align: center;
@@ -241,7 +251,7 @@ h1, h2, h3 {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columns side-by-side */
+    grid-template-columns: repeat(5, 1fr); /* Fits 5 images side by side */
     gap: 15px;
 }
 
@@ -253,7 +263,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================
-   7. CONTACT SECTION (Strips Side-by-Side)
+   7. CONTACT SECTION (Details Side-by-Side)
    ========================================== */
 .contact-highlight-box {
     background: white;
@@ -265,7 +275,7 @@ h1, h2, h3 {
 
 .contact-strip-inner {
     display: flex;
-    justify-content: space-between; /* Spreads contact details side-by-side */
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
 }
@@ -302,15 +312,18 @@ footer a {
 }
 
 /* ==========================================
-   9. EXTRA: MOBILE RESPONSIVENESS
+   9. MOBILE RESPONSIVENESS
    ========================================== */
 @media (max-width: 768px) {
-    /* Stacks elements vertically ONLY on small mobile screens */
-    .hero-container, .about-grid, .program-grid, .contact-strip-inner, .highlight-bar, .about-features {
+    /* Stacks elements safely into list view on small phone screens only */
+    .hero-container, .about-grid, .program-grid, .contact-strip-inner, .about-features {
         flex-direction: column;
     }
+    .highlight-bar {
+        justify-content: center;
+    }
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+        grid-template-columns: repeat(2, 1fr); /* 2 side-by-side on mobile phones */
     }
     .nav-container {
         flex-direction: column;
