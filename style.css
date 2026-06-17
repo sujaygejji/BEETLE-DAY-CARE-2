@@ -1,100 +1,52 @@
-/* --- Global Variable Declarations & Resets --- */
-:root {
-    --primary: #FF6B6B;
-    --primary-hover: #FF5252;
-    --secondary: #4D96FF;
-    --secondary-hover: #377FE3;
-    --accent: #FFD93D;
-    --bg-light: #F9FBFD;
-    --bg-card: #FFFFFF;
-    --text-dark: #2D3748;
-    --text-muted: #718096;
-    --nav-bg: rgba(255, 255, 255, 0.95);
-    --border-radius: 20px;
-    --transition: all 0.3s ease;
-}
-
+/* ==========================================
+   1. GLOBAL STYLES & VARIABLES
+   ========================================== */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-html {
+    box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Quicksand', sans-serif;
-    color: var(--text-dark);
-    background-color: var(--bg-light);
+    color: #102A43;
+    background-color: #FFFFFF;
     line-height: 1.6;
-    overflow-x: hidden;
+    padding-top: 100px; /* Perfect safety clearing space for sticky navbars */
 }
 
-h1, h2, h3, .brand-name {
+h1, h2, h3, .brand-main-heading {
     font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
+    color: #102A43;
+    font-weight: 400; /* Crisp, clean, premium thin text weight profile */
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* --- Global Section Utilities --- */
 .section-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 24px;
+    padding: 60px 20px;
 }
 
-.section-badge {
-    background-color: rgba(77, 150, 255, 0.1);
-    color: var(--secondary);
-    padding: 6px 16px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 16px;
-}
-
-.center-title-area {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.center-title-area h2 {
-    font-size: 36px;
-    color: var(--text-dark);
-}
-
-/* --- Header / Navigation Bar --- */
+/* ==========================================
+   2. FIXED HEADER & NAVIGATION BAR
+   ========================================== */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--nav-bg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    z-index: 1000;
-    transition: var(--transition);
+    background-color: rgba(255, 255, 255, 0.95); 
     backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(16, 42, 67, 0.05);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(16, 42, 67, 0.04);
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 12px 24px;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -103,11 +55,12 @@ img {
 .logo-area {
     display: flex;
     align-items: center;
+    text-decoration: none;
     gap: 12px;
 }
 
 .logo-img {
-    height: 60px;
+    height: 50px;
     width: auto;
     object-fit: contain;
 }
@@ -118,97 +71,111 @@ img {
 }
 
 .brand-name {
-    font-size: 22px;
-    color: var(--primary);
+    font-family: 'Fredoka', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #102A43;
     line-height: 1.2;
 }
 
 .brand-location {
-    font-size: 13px;
-    color: var(--text-muted);
+    font-size: 12px;
+    color: #486581;
     font-weight: 500;
+    margin-top: 2px;
 }
 
 .brand-location i {
-    color: var(--primary);
+    color: #D97745;
 }
 
 .nav-menu {
     display: flex;
-    gap: 28px;
+    gap: 24px;
+    list-style: none;
+    align-items: center;
 }
 
 .nav-menu a {
+    text-decoration: none;
+    color: #0F172A; 
     font-weight: 700;
-    font-size: 16px;
-    color: var(--text-dark);
-    position: relative;
-    padding: 4px 0;
+    font-size: 15px;
+    transition: color 0.2s ease;
+    white-space: nowrap;
 }
 
 .nav-menu a:hover {
-    color: var(--primary);
+    color: #D97745;
 }
 
-/* --- Hero Layout --- */
+/* ==========================================
+   3. HERO SECTION (Custom Typography & Board Overlay)
+   ========================================== */
 .hero-section {
-    padding-top: 140px;
-    background: linear-gradient(180deg, #EDF5FF 0%, var(--bg-light) 100%);
+    background-color: #FFFFFF;
+    padding: 40px 0 80px 0;
 }
 
 .hero-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    padding: 0 20px;
+    display: flex;
     align-items: center;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
 }
 
 .hero-badge {
-    background-color: #FFFFFF;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-    color: var(--text-dark);
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 14px;
+    background-color: #EBF8FF;
+    color: #2B6CB0;
     font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 24px;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
 .hero-badge i {
-    color: var(--accent);
+    margin-right: 4px;
 }
 
-.hero-tagline-seo {
-    font-size: 18px;
-    color: var(--secondary);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-}
-
+/* HYBRID HIGH-PERFORMANCE SEO H1 DESIGN */
 .brand-main-heading {
-    font-size: 46px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: var(--text-dark);
+    font-size: 40px;
+    font-weight: 300;         /* Beautifully thin font style */
+    line-height: 1.4;         /* Comfortable breathing line spacing gap */
+    letter-spacing: 0.5px;    /* Elegant letter dispersion grid */
+    margin-bottom: 15px;
 }
 
 .brand-seo-sub {
     display: block;
-    color: var(--primary);
+    font-size: 16px;
+    font-weight: 700;
+    color: #2B6CB0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+}
+
+.hero-tagline {
+    font-size: 24px;
+    color: #D97745;
+    margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .hero-description {
-    font-size: 18px;
-    color: var(--text-muted);
-    margin-bottom: 32px;
+    font-size: 16px;
+    color: #486581;
+    margin-bottom: 30px;
+    max-width: 540px;
 }
 
 .hero-buttons {
@@ -217,346 +184,492 @@ img {
     margin-bottom: 40px;
 }
 
-.btn-primary, .btn-secondary {
-    padding: 14px 28px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 16px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
 .btn-primary {
-    background-color: var(--primary);
+    background-color: #D97745;
     color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(217, 119, 69, 0.3);
+    transition: all 0.2s ease;
+    display: inline-block;
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-hover);
+    background-color: #C26132;
     transform: translateY(-2px);
 }
 
 .btn-secondary {
-    background-color: var(--bg-card);
-    color: var(--secondary);
-    border: 2px solid var(--secondary);
+    background-color: #F0F4F8;
+    color: #486581;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    display: inline-block;
+    transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-    background-color: var(--secondary);
-    color: white;
-    transform: translateY(-2px);
+    background-color: #E2E8F0;
 }
 
 .highlight-bar {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 24px;
     display: flex;
-    background-color: white;
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    justify-content: space-around;
-    gap: 12px;
+    justify-content: center;
+    gap: 30px;
+    box-shadow: 0 10px 30px rgba(16, 42, 67, 0.08);
+    border: 1px solid #E4EBF1;
 }
 
-.highlight-item {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+.highlight-bar span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #486581;
+    white-space: nowrap;
 }
 
-.highlight-item strong {
+.highlight-bar strong {
+    color: #D97745;
     font-family: 'Fredoka', sans-serif;
-    color: var(--primary);
-    font-size: 18px;
 }
 
-.highlight-item span {
-    font-size: 13px;
-    color: var(--text-muted);
+/* HERO CONTAINER PICTURE & WALL OVERLAY ASSIGNMENTS */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative; 
 }
 
 .hero-image-wrapper {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    position: relative;
+    display: inline-block;
 }
 
 .hero-image img {
-    width: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    border-radius: 32px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    animation: gentleFloat 6s ease-in-out infinite;
+    display: block;
 }
 
-/* --- About Section --- */
+/* SIGNBOARD: Injects custom sign card over vector classroom wall space */
+.wall-signboard {
+    position: absolute;
+    top: 16%;                /* Drops it down directly over open wall spaces */
+    left: 26%;               /* Centers it elegantly horizontally across the vector map */
+    background: #FFFFFF;
+    padding: 6px 16px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(16, 42, 67, 0.12);
+    border: 2px solid #E4EBF1;
+    z-index: 10;
+    pointer-events: none;    
+    animation: gentleFloat 6s ease-in-out infinite; /* Locks down to floating graphics track */
+}
+
+.wall-signboard span {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #102A43;
+    white-space: nowrap;
+}
+
+/* ==========================================
+   4. ABOUT SECTION
+   ========================================== */
+.about-section {
+    padding: 80px 0;
+    background-color: #FAF6F0; 
+}
+
 .about-grid {
-    display: grid;
-    grid-template-columns: 11fr 10fr;
-    gap: 60px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    gap: 50px;
+}
+
+.about-content {
+    flex: 0 0 55%; 
+}
+
+.section-badge {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #102A43;
+    margin-bottom: 8px;
+    display: block;
 }
 
 .about-tagline {
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #D97745;
+    margin-bottom: 24px;
 }
 
 .about-text {
-    font-size: 17px;
-    color: var(--text-muted);
+    color: #486581;
+    font-size: 16px;
     margin-bottom: 30px;
 }
 
 .about-features {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-}
-
-.feature-item {
-    display: flex;
-    gap: 16px;
-    background: white;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-}
-
-.feature-icon {
-    font-size: 28px;
-    color: var(--secondary);
-    margin-top: 4px;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
 }
 
 .feature-item h3 {
-    font-size: 18px;
-    margin-bottom: 4px;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #102A43;
 }
 
 .feature-item p {
-    font-size: 14px;
-    color: var(--text-muted);
+    color: #627D98;
+    font-size: 13px;
 }
 
 .about-image-wrapper {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
 }
 
-/* --- Curriculum / Program Cards --- */
+.about-illustration {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    border-radius: 50%;
+    border: 12px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    animation: gentleFloat 6s ease-in-out infinite;
+    animation-delay: 1s; 
+}
+
+/* ==========================================
+   5. PROGRAMS SECTION
+   ========================================== */
 .program-section {
-    background-color: #F0F6FC;
+    background-color: #F0F4F8; 
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .program-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     gap: 30px;
 }
 
 .program-card {
-    background-color: var(--bg-card);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    transition: var(--transition);
+    flex: 1;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 6px 18px rgba(16,42,67,0.04);
+    transition: transform 0.2s ease;
 }
 
 .program-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
 }
 
-.program-img-frame {
-    height: 220px;
-    overflow: hidden;
-}
-
-.program-img-frame img {
+.program-card img {
     width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 20px;
 }
 
-.program-card-body {
-    padding: 24px;
-}
-
-.program-card-body h3 {
+.program-card h3 {
     font-size: 20px;
-    margin-bottom: 12px;
-    color: var(--secondary);
+    margin-bottom: 10px;
 }
 
-.program-card-body p {
-    font-size: 15px;
-    color: var(--text-muted);
+.program-card p {
+    color: #486581;
+    font-size: 14px;
 }
 
-/* --- Gallery Setup --- */
+/* ==========================================
+   6. GALLERY SECTION
+   ========================================== */
+.gallery-section {
+    padding: 80px 20px; 
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
 .gallery-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 24px;
+}
+
+.gallery-title {
+    font-size: 36px;
+    margin-bottom: 40px;
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 16px; 
 }
 
 .gallery-item {
-    border-radius: 16px;
-    overflow: hidden;
-    aspect-ratio: 1 / 1;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    border-radius: 16px; 
+    overflow: hidden; 
+    aspect-ratio: 1 / 1; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
+    object-fit: cover; 
 }
 
-.gallery-item:hover img {
-    transform: scale(1.06);
-}
-
-/* --- Contact Structural Card & Strip --- */
+/* ==========================================
+   7. CONTACT SECTION & BOX LAYOUTS
+   ========================================== */
 .contact-section {
-    background-color: #FFFDF6;
+    background-color: #F5EFEB; 
+    padding: 80px 0;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .contact-highlight-box {
-    background-color: white;
-    border-radius: var(--border-radius);
-    padding: 32px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-    margin-bottom: 40px;
+    background-color: #102A43; 
+    padding: 40px;
+    border-radius: 28px;
+    margin: 0 auto 50px auto;
+    box-shadow: 0 12px 35px rgba(16, 42, 67, 0.15);
+    border: 2px solid #D97745; 
+    max-width: 650px; /* Reduced to fit the centered, stacked layout cleanly */
     position: relative;
-    border: 2px dashed #FFE3A8;
 }
 
 .contact-tag-badge {
     position: absolute;
     top: -14px;
-    left: 32px;
-    background-color: var(--accent);
-    color: var(--text-dark);
-    font-weight: 700;
-    padding: 4px 14px;
-    border-radius: 50px;
+    left: 50%;
+    transform: translateX(-50%); /* Cleanly centers the header badge over the stacked card */
+    background-color: #D97745;
+    color: white;
+    padding: 4px 16px;
+    border-radius: 20px;
     font-size: 12px;
+    font-weight: 700;
+    font-family: 'Fredoka', sans-serif;
+    text-transform: uppercase;
 }
 
 .contact-strip-inner {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 24px;
+    text-align: center;
 }
 
 .strip-item {
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF; 
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
-    font-size: 16px;
-    font-weight: 700;
+}
+
+.strip-item a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.strip-item a:hover {
+    color: #FF9B6A;
 }
 
 .strip-item i {
+    color: #FF9B6A; 
     font-size: 20px;
-    color: var(--primary);
+    width: 24px;
+    text-align: center;
 }
 
+/* Updated address structural blocks to stack clean and centered */
 .address-item {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    width: 100%;
 }
 
 .address-text-row {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
 }
 
 .inline-map-btn {
-    font-size: 13px;
-    background-color: var(--secondary);
-    color: white;
-    padding: 4px 12px;
-    border-radius: 50px;
-    display: inline-block;
+    background-color: #2B6CB0;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(43, 108, 176, 0.3);
+    transition: all 0.2s ease;
+    border: none;
 }
 
 .inline-map-btn:hover {
-    background-color: var(--secondary-hover);
+    background-color: #1A4976;
+    transform: translateY(-2px);
 }
 
 .map-wrapper {
-    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-    border-radius: 24px;
-    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* --- Footing & Links --- */
+/* ==========================================
+   8. FOOTER METRICS
+   ========================================== */
 footer {
-    background-color: #2D3748;
-    color: #E2E8F0;
+    background-color: #102A43;
+    color: #BCCCDC;
     text-align: center;
+    padding: 60px 20px;
+    font-size: 14px;
+    border-top: 3px solid #D97745;
 }
 
-footer .section-container {
-    padding: 40px 24px;
+footer img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 20px;
 }
 
-.footer-logo {
-    height: 50px;
-    margin: 0 auto 16px auto;
+footer p {
+    color: #9FB3C8;
 }
 
-.footer-links {
-    margin-top: 12px;
+footer a {
+    color: #BCCCDC;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.2s ease;
 }
 
-.footer-links a {
-    color: #A0AEC0;
-    margin: 0 4px;
+footer a:hover {
+    color: #FFFFFF;
 }
 
-.footer-links a:hover {
-    color: white;
-}
-
-/* --- Media Queries for Responsive Framework --- */
+/* ==========================================
+   9. RESPONSIVE MEDIA QUERIES
+   ========================================== */
 @media (max-width: 992px) {
-    .hero-container, .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    .hero-container, .about-grid, .program-grid {
+        flex-direction: column;
+        text-align: center;
     }
-    .hero-image {
-        order: -1;
+    .hero-description {
+        margin: 0 auto 30px auto;
     }
-    .program-grid {
-        grid-template-columns: 1fr 1fr;
+    .hero-buttons {
+        justify-content: center;
+    }
+    .about-content, .about-image-wrapper {
+        flex: 0 0 100%;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .wall-signboard {
+        display: none; /* Hides relative elements on tight viewports */
     }
 }
 
 @media (max-width: 768px) {
+    body {
+        padding-top: 140px; 
+    }
+    .nav-container {
+        flex-direction: column;
+        gap: 12px;
+    }
     .nav-menu {
-        display: none; /* Modern optimization step: can expand to burger if needed */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
     }
     .brand-main-heading {
-        font-size: 34px;
+        font-size: 32px;
     }
-    .program-grid {
-        grid-template-columns: 1fr;
-    }
-    .contact-strip-inner {
+    .highlight-bar {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 10px;
+        align-items: center;
     }
+    .about-features {
+        grid-template-columns: 1fr; 
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .contact-highlight-box {
+        padding: 30px 20px;
+    }
+}
+
+/* ==========================================
+   10. KEYFRAME STRUCTS & ANIMATIONS
+   ========================================== */
+@keyframes gentleFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
 }
