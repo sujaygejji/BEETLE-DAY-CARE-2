@@ -1,68 +1,60 @@
 /* ==========================================
-   1. GLOBAL STYLES & VARIABLES
+   1. GENERAL STYLES & RESET
    ========================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Quicksand', sans-serif;
-    color: #102A43;
-    background-color: #FFFFFF;
+    background-color: #F0F4F8;
+    color: #334E68;
     line-height: 1.6;
-    padding-top: 100px; /* Perfect safety clearing space for sticky navbars */
 }
 
-h1, h2, h3, .brand-main-heading {
+h1, h2, h3 {
     font-family: 'Fredoka', sans-serif;
-    color: #102A43;
-    font-weight: 400; /* Crisp, clean, premium thin text weight profile */
 }
 
-.section-container {
+.section-container, .nav-container, .hero-container, .gallery-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 40px 20px;
 }
 
 /* ==========================================
-   2. FIXED HEADER & NAVIGATION BAR
+   2. FIXED NAVBAR (Side-by-Side Logo & Menu)
    ========================================== */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95); 
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(16, 42, 67, 0.05);
     z-index: 1000;
-    border-bottom: 1px solid rgba(16, 42, 67, 0.04);
+    background-color: #F0F4F8;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Pushes logo to left, links to right */
     align-items: center;
+    padding: 15px 20px;
 }
 
 .logo-area {
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 12px;
+    gap: 12px; /* Spaces out logo image and text */
 }
 
 .logo-img {
     height: 50px;
     width: auto;
-    object-fit: contain;
 }
 
 .brand-text-wrapper {
@@ -71,689 +63,257 @@ h1, h2, h3, .brand-main-heading {
 }
 
 .brand-name {
-    font-family: 'Fredoka', sans-serif;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     color: #102A43;
-    line-height: 1.2;
 }
 
 .brand-location {
     font-size: 12px;
-    color: #486581;
-    font-weight: 500;
-    margin-top: 2px;
+    color: #627D98;
 }
 
-.brand-location i {
-    color: #D97745;
-}
-
+/* Navigation Links Side-by-Side */
 .nav-menu {
     display: flex;
-    gap: 24px;
-    list-style: none;
-    align-items: center;
+    gap: 25px; /* Spaces out the links */
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: #0F172A; 
-    font-weight: 700;
-    font-size: 15px;
-    transition: color 0.2s ease;
-    white-space: nowrap;
+    color: #486581;
+    font-weight: 500;
+    transition: color 0.2s;
 }
 
 .nav-menu a:hover {
-    color: #D97745;
+    color: #102A43;
 }
 
 /* ==========================================
-   3. HERO SECTION (Custom Typography & Board Overlay)
+   3. HERO SECTION (Side-by-Side Content & Image)
    ========================================== */
 .hero-section {
-    background-color: #FFFFFF;
-    padding: 40px 0 80px 0;
+    padding-top: 120px; /* Prevents fixed navbar from covering content */
+    background: linear-gradient(180deg, #F0F4F8 0%, #FFFFFF 100%);
 }
 
 .hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 40px;
 }
 
 .hero-content {
-    flex: 1;
+    flex: 1; /* Takes up half the space */
 }
 
-.hero-badge {
-    background-color: #EBF8FF;
-    color: #2B6CB0;
-    font-weight: 700;
-    font-size: 13px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-.hero-badge i {
-    margin-right: 4px;
-}
-
-/* HYBRID HIGH-PERFORMANCE SEO H1 DESIGN */
-.brand-main-heading {
-    font-size: 40px;
-    font-weight: 300;         /* Beautifully thin font style */
-    line-height: 1.4;         /* Comfortable breathing line spacing gap */
-    letter-spacing: 0.5px;    /* Elegant letter dispersion grid */
-    margin-bottom: 15px;
-}
-
-.brand-seo-sub {
-    display: block;
-    font-size: 16px;
-    font-weight: 700;
-    color: #2B6CB0;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 6px;
-}
-
-.hero-tagline {
-    font-size: 24px;
-    color: #D97745;
-    margin-bottom: 20px;
-    font-weight: 500;
-}
-
-.hero-description {
-    font-size: 16px;
-    color: #486581;
-    margin-bottom: 30px;
-    max-width: 540px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 40px;
-}
-
-.btn-primary {
-    background-color: #D97745;
-    color: white;
-    text-decoration: none;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-weight: 700;
-    box-shadow: 0 4px 14px rgba(217, 119, 69, 0.3);
-    transition: all 0.2s ease;
-    display: inline-block;
-}
-
-.btn-primary:hover {
-    background-color: #C26132;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: #F0F4F8;
-    color: #486581;
-    text-decoration: none;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-weight: 700;
-    display: inline-block;
-    transition: all 0.2s ease;
-}
-
-.btn-secondary:hover {
-    background-color: #E2E8F0;
-}
-
-.highlight-bar {
-    background: white;
-    padding: 20px 30px;
-    border-radius: 24px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    box-shadow: 0 10px 30px rgba(16, 42, 67, 0.08);
-    border: 1px solid #E4EBF1;
-}
-
-.highlight-bar span {
-    font-size: 14px;
-    font-weight: 600;
-    color: #486581;
-    white-space: nowrap;
-}
-
-.highlight-bar strong {
-    color: #D97745;
-    font-family: 'Fredoka', sans-serif;
-}
-
-/* HERO CONTAINER PICTURE & WALL OVERLAY ASSIGNMENTS */
 .hero-image {
-    flex: 1;
+    flex: 1; /* Takes up the other half */
     display: flex;
     justify-content: center;
-    position: relative; 
-}
-
-.hero-image-wrapper {
     position: relative;
-    display: inline-block;
 }
 
 .hero-image img {
     max-width: 100%;
-    height: auto;
-    border-radius: 32px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-    animation: gentleFloat 6s ease-in-out infinite;
-    display: block;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-/* SIGNBOARD: Injects custom sign card over vector classroom wall space */
-.wall-signboard {
-    position: absolute;
-    top: 16%;                /* Drops it down directly over open wall spaces */
-    left: 26%;               /* Centers it elegantly horizontally across the vector map */
-    background: #FFFFFF;
-    padding: 6px 16px;
-    border-radius: 8px;
-    box-shadow: 0 6px 15px rgba(16, 42, 67, 0.12);
-    border: 2px solid #E4EBF1;
-    z-index: 10;
-    pointer-events: none;    
-    animation: gentleFloat 6s ease-in-out infinite; /* Locks down to floating graphics track */
+/* Buttons Side-by-Side */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
 }
 
-.wall-signboard span {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: #102A43;
-    white-space: nowrap;
+.btn-primary, .btn-secondary {
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.btn-primary { background-color: #102A43; color: white; }
+.btn-secondary { background-color: #D9E2EC; color: #102A43; }
+
+/* Highlight Bar Items Side-by-Side */
+.highlight-bar {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
 
 /* ==========================================
-   4. ABOUT SECTION
+   4. ABOUT SECTION (Side-by-Side Text & Illustration)
    ========================================== */
-.about-section {
-    padding: 80px 0;
-    background-color: #FAF6F0; 
-}
-
 .about-grid {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 50px;
 }
 
-.about-content {
-    flex: 0 0 55%; 
-}
-
-.section-badge {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: #102A43;
-    margin-bottom: 8px;
-    display: block;
-}
-
-.about-tagline {
-    font-size: 20px;
-    font-weight: 500;
-    color: #D97745;
-    margin-bottom: 24px;
-}
-
-.about-text {
-    color: #486581;
-    font-size: 16px;
-    margin-bottom: 30px;
-}
-
-.about-features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    background: #ffffff;
-    padding: 24px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
-
-.feature-item h3 {
-    font-size: 16px;
-    margin-bottom: 6px;
-    color: #102A43;
-}
-
-.feature-item p {
-    color: #627D98;
-    font-size: 13px;
-}
-
-.about-image-wrapper {
-    flex: 0 0 40%;
-    display: flex;
-    justify-content: center;
+.about-content, .about-image-wrapper {
+    flex: 1;
 }
 
 .about-illustration {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    border-radius: 50%;
-    border: 12px solid #ffffff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    animation: gentleFloat 6s ease-in-out infinite;
-    animation-delay: 1s; 
+    max-width: 100%;
+    border-radius: 24px;
+}
+
+/* About Features Side-by-Side */
+.about-features {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.feature-item {
+    flex: 1;
+    background-color: #F0F4F8;
+    padding: 20px;
+    border-radius: 16px;
 }
 
 /* ==========================================
-   5. PROGRAMS SECTION
+   5. PROGRAMS SECTION (3 Cards Side-by-Side)
    ========================================== */
 .program-section {
-    background-color: #F0F4F8; 
-    padding: 80px 0;
+    background-color: #F0F4F8;
+    text-align: center;
 }
 
 .section-title {
-    font-size: 36px;
-    text-align: center;
+    font-size: 32px;
     margin-bottom: 40px;
 }
 
 .program-grid {
     display: flex;
-    gap: 30px;
+    gap: 25px; /* Spaces out the 3 cards */
+    justify-content: center;
 }
 
 .program-card {
-    flex: 1;
-    background: #FFFFFF;
-    border-radius: 24px;
-    padding: 24px;
-    box-shadow: 0 6px 18px rgba(16,42,67,0.04);
-    transition: transform 0.2s ease;
-}
-
-.program-card:hover {
-    transform: translateY(-4px);
+    flex: 1; /* Makes all cards equal width */
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: left;
 }
 
 .program-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 16px;
-    margin-bottom: 20px;
 }
 
 .program-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    padding: 15px 20px 5px 20px;
 }
 
 .program-card p {
-    color: #486581;
-    font-size: 14px;
+    padding: 0 20px;
+    color: #627D98;
 }
 
 /* ==========================================
-   6. GALLERY SECTION
+   6. GALLERY SECTION (Grid Layout)
    ========================================== */
 .gallery-section {
-    padding: 80px 20px; 
-    background-color: #FFFFFF;
     text-align: center;
 }
 
-.gallery-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .gallery-title {
-    font-size: 36px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 16px; 
-}
-
-.gallery-item {
-    border-radius: 16px; 
-    overflow: hidden; 
-    aspect-ratio: 1 / 1; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-    transition: transform 0.2s ease;
-}
-
-.gallery-item:hover {
-    transform: scale(1.03);
+    grid-template-columns: repeat(5, 1fr); /* 5 columns side-by-side */
+    gap: 15px;
 }
 
 .gallery-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; 
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 /* ==========================================
-   7. CONTACT SECTION & BOX LAYOUTS
+   7. CONTACT SECTION (Strips Side-by-Side)
    ========================================== */
-.contact-section {
-    background-color: #F5EFEB; 
-    padding: 80px 0;
-}
-
-.contact-section h2 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
 .contact-highlight-box {
-    background-color: #102A43; 
-    padding: 40px;
-    border-radius: 28px;
-    margin: 0 auto 50px auto;
-    box-shadow: 0 12px 35px rgba(16, 42, 67, 0.15);
-    border: 2px solid #D97745; 
-    max-width: 650px; /* Reduced to fit the centered, stacked layout cleanly */
-    position: relative;
-}
-
-.contact-tag-badge {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%); /* Cleanly centers the header badge over the stacked card */
-    background-color: #D97745;
-    color: white;
-    padding: 4px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    font-family: 'Fredoka', sans-serif;
-    text-transform: uppercase;
+    background: white;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
 }
 
 .contact-strip-inner {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    justify-content: space-between; /* Spreads contact details side-by-side */
     align-items: center;
-    text-align: center;
+    gap: 20px;
 }
 
 .strip-item {
-    font-size: 16px;
-    font-weight: 600;
-    color: #FFFFFF; 
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .strip-item a {
-    color: #FFFFFF;
+    color: #102A43;
     text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.strip-item a:hover {
-    color: #FF9B6A;
-}
-
-.strip-item i {
-    color: #FF9B6A; 
-    font-size: 20px;
-    width: 24px;
-    text-align: center;
-}
-
-/* Updated address structural blocks to stack clean and centered */
-.address-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
-    width: 100%;
-}
-
-.address-text-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-}
-
-.inline-map-btn {
-    background-color: #2B6CB0;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 10px 24px;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 14px;
-    white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(43, 108, 176, 0.3);
-    transition: all 0.2s ease;
-    border: none;
-}
-
-.inline-map-btn:hover {
-    background-color: #1A4976;
-    transform: translateY(-2px);
+    font-weight: 600;
 }
 
 .map-wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin-top: 30px;
 }
 
 /* ==========================================
-   8. FOOTER METRICS
+   8. FOOTER
    ========================================== */
 footer {
     background-color: #102A43;
-    color: #BCCCDC;
+    color: white;
     text-align: center;
-    padding: 60px 20px;
-    font-size: 14px;
-    border-top: 3px solid #D97745;
-}
-
-footer img {
-    max-width: 100px;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-footer p {
-    color: #9FB3C8;
+    padding: 40px 0;
 }
 
 footer a {
     color: #BCCCDC;
     text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.2s ease;
-}
-
-footer a:hover {
-    color: #FFFFFF;
 }
 
 /* ==========================================
-   9. RESPONSIVE MEDIA QUERIES
+   9. EXTRA: MOBILE RESPONSIVENESS
    ========================================== */
-@media (max-width: 992px) {
-    .hero-container, .about-grid, .program-grid {
+@media (max-width: 768px) {
+    /* Stacks elements vertically ONLY on small mobile screens */
+    .hero-container, .about-grid, .program-grid, .contact-strip-inner, .highlight-bar, .about-features {
         flex-direction: column;
-        text-align: center;
-    }
-    .hero-description {
-        margin: 0 auto 30px auto;
-    }
-    .hero-buttons {
-        justify-content: center;
-    }
-    .about-content, .about-image-wrapper {
-        flex: 0 0 100%;
     }
     .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .wall-signboard {
-        display: none; /* Hides relative elements on tight viewports */
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        padding-top: 140px; 
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
     }
     .nav-container {
         flex-direction: column;
-        gap: 12px;
+        gap: 15px;
     }
-    .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 14px;
-    }
-    .brand-main-heading {
-        font-size: 32px;
-    }
-    .highlight-bar {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-    }
-    .about-features {
-        grid-template-columns: 1fr; 
-    }
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-    .contact-highlight-box {
-        padding: 30px 20px;
-    }
-}
-
-/* =====================================
-   HERO IMAGE MICRO ANIMATIONS
-   ===================================== */
-
-.hero-image-wrapper{
-    position:relative;
-    overflow:hidden;
-}
-
-.toy-train{
-    position:absolute;
-    bottom:24%;
-    left:46%;
-    font-size:28px;
-    z-index:20;
-    animation: trainMove 8s ease-in-out infinite;
-}
-
-.floating-block{
-    position:absolute;
-    bottom:34%;
-    left:22%;
-    font-size:24px;
-    z-index:20;
-    animation: blockStack 3s ease-in-out infinite;
-}
-
-.sparkle{
-    position:absolute;
-    z-index:20;
-    font-size:18px;
-    animation:sparkleFloat 4s ease-in-out infinite;
-}
-
-.sparkle1{
-    top:18%;
-    right:20%;
-}
-
-.sparkle2{
-    top:35%;
-    right:12%;
-    animation-delay:2s;
-}
-
-@keyframes trainMove{
-    0%{
-        transform:translateX(0px);
-    }
-    50%{
-        transform:translateX(40px);
-    }
-    100%{
-        transform:translateX(0px);
-    }
-}
-
-@keyframes blockStack{
-    0%{
-        transform:translateY(0px);
-    }
-    50%{
-        transform:translateY(-12px);
-    }
-    100%{
-        transform:translateY(0px);
-    }
-}
-
-@keyframes sparkleFloat{
-    0%{
-        transform:translateY(0px);
-        opacity:.8;
-    }
-    50%{
-        transform:translateY(-8px);
-        opacity:1;
-    }
-    100%{
-        transform:translateY(0px);
-        opacity:.8;
-    }
-}
-
-/* ==========================================
-   10. KEYFRAME STRUCTS & ANIMATIONS
-   ========================================== */
-@keyframes gentleFloat {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0px); }
 }
