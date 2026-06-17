@@ -40,7 +40,7 @@ h1, h2, h3 {
 
 .nav-container {
     display: flex;
-    justify-content: space-between; /* Logo on left, links on right */
+    justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
 }
@@ -93,7 +93,7 @@ h1, h2, h3 {
    3. HERO SECTION (Side-by-Side Content & Image)
    ========================================== */
 .hero-section {
-    padding-top: 120px; /* Space for the top navbar */
+    padding-top: 140px; /* Gives plenty of space under navbar */
     background: linear-gradient(180deg, #F0F4F8 0%, #FFFFFF 100%);
 }
 
@@ -101,15 +101,16 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 50px;
 }
 
 .hero-content {
-    flex: 1;
+    flex: 1.2; /* Allocates slightly more width for text to prevent squeeze */
+    min-width: 0; /* Fixes unexpected flex overflows */
 }
 
 .hero-image {
-    flex: 1;
+    flex: 0.8; /* Restricts the image column width slightly */
     display: flex;
     justify-content: center;
     position: relative;
@@ -117,6 +118,7 @@ h1, h2, h3 {
 
 .hero-image img {
     max-width: 100%;
+    height: auto;
     border-radius: 24px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
@@ -125,7 +127,7 @@ h1, h2, h3 {
 .hero-buttons {
     display: flex;
     gap: 15px;
-    margin: 20px 0;
+    margin: 25px 0;
 }
 
 .btn-primary, .btn-secondary {
@@ -139,24 +141,28 @@ h1, h2, h3 {
 .btn-primary { background-color: #102A43; color: white; }
 .btn-secondary { background-color: #D9E2EC; color: #102A43; }
 
-/* FIX: Highlight Bar Side-by-Side (No squeezing) */
+/* FIXED HIGHLIGHT BAR */
 .highlight-bar {
     display: flex;
-    flex-wrap: wrap; /* Wraps items cleanly on medium screens */
+    justify-content: space-between;
     gap: 15px;
-    margin-top: 30px;
+    margin-top: 35px;
     background: white;
-    padding: 15px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    width: 100%;
 }
 
 .highlight-bar span {
-    font-size: 14px; /* Keeps text slightly smaller to fit perfectly */
-    white-space: nowrap; /* Stops text from wrapping awkwardly */
+    flex: 1;
+    font-size: 14px;
+    color: #486581;
+    text-align: center;
+    line-height: 1.4;
 }
 
-/* Animations placeholder space */
+/* Emojis positioning */
 .toy-train, .floating-block, .sparkle {
     position: absolute;
 }
@@ -180,7 +186,6 @@ h1, h2, h3 {
     border-radius: 24px;
 }
 
-/* Features Side-by-Side */
 .about-features {
     display: flex;
     gap: 20px;
@@ -251,7 +256,7 @@ h1, h2, h3 {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Fits 5 images side by side */
+    grid-template-columns: repeat(5, 1fr);
     gap: 15px;
 }
 
@@ -314,16 +319,26 @@ footer a {
 /* ==========================================
    9. MOBILE RESPONSIVENESS
    ========================================== */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-buttons, .highlight-bar {
+        justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
-    /* Stacks elements safely into list view on small phone screens only */
-    .hero-container, .about-grid, .program-grid, .contact-strip-inner, .about-features {
+    .about-grid, .program-grid, .contact-strip-inner, .about-features {
         flex-direction: column;
     }
     .highlight-bar {
-        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
     }
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 side-by-side on mobile phones */
+        grid-template-columns: repeat(2, 1fr);
     }
     .nav-container {
         flex-direction: column;
